@@ -68,7 +68,7 @@ GROQ_API_KEY=your_groq_api_key_here
 HUGGING_FACE_AUTH_TOKEN=your_huggingface_token_here
 
 # Database
-MONGODB_URI=
+MONGODB_URI= your mongodb uri
 
 # Server
 PORT=3000
