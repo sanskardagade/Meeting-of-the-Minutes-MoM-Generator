@@ -4,6 +4,7 @@ import soundfile as sf
 from scipy.io.wavfile import write
 from pyannote.audio.pipelines.speaker_verification import PretrainedSpeakerEmbedding
 import pickle
+import sys
 import torch
 import numpy as np
 from dotenv import load_dotenv
@@ -14,15 +15,20 @@ load_dotenv()
 # Get the Hugging Face auth token from environment variable
 auth_token = os.getenv("HUGGING_FACE_AUTH_TOKEN")
 
+model = PretrainedSpeakerEmbedding(
+    "pyannote/embedding", use_auth_token=auth_token
+)
+
+
 RECORDED_DIR = "real_time_recordings"
 os.makedirs(RECORDED_DIR, exist_ok=True)
 
+
 EMBEDDINGS_FILE = "speaker_embeddings.npy"
 
+
 model = PretrainedSpeakerEmbedding(
-    "pyannote/embedding",
-    device="cuda" if torch.cuda.is_available() else "cpu",
-    use_auth_token=auth_token
+    "pyannote/embedding", device="cuda" if torch.cuda.is_available() else "cpu"
 )
 
 def record_audio(file_path, duration=5, sample_rate=16000):
@@ -92,5 +98,9 @@ def add_new_speaker(speaker_name, duration=5):
 
 
 if __name__ == "__main__":
-    speaker_name = input("Enter the name of the speaker: ")
+    if len(sys.argv) < 2:
+        print("❌ Error: Speaker name not provided.")
+        sys.exit(1)
+
+    speaker_name = sys.argv[1]
     add_new_speaker(speaker_name)

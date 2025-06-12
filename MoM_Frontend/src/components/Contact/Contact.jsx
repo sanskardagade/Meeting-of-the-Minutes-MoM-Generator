@@ -61,19 +61,19 @@ export default function Contact() {
                             <div className="flex items-center mt-8 text-[#152c39]">
                                 📍 <span className="ml-4 font-semibold">Dr.D.Y Patil Institute of Technology</span>
                             </div>
-                            <div className="flex items-center mt-4 text-[#152c39]">
+                            {/* <div className="flex items-center mt-4 text-[#152c39]">
                                 📞 <span className="ml-4 font-semibold">+91 8459708577</span>
                             </div>
                             <div className="flex items-center mt-4 text-[#152c39]">
                                 📞 <span className="ml-4 font-semibold">+91 8605702805</span>
-                            </div>
+                            </div> */}
                             
-                            <div className="flex items-center mt-2 text-[#152c39]">
+                            {/* <div className="flex items-center mt-2 text-[#152c39]">
                                 📧 <span className="ml-4 font-semibold">sanskardagade07@gmail.com</span>
                             </div>
                             <div className="flex items-center mt-2 text-[#152c39]">
                                 📧 <span className="ml-4 font-semibold">tanishkadhole2992@gmail.com</span>
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* Contact Form */}
